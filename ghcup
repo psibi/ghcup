@@ -1833,6 +1833,8 @@ compile_ghc() {
         if [ "$(echo "${myghcver}" | awk -F. '{printf"%d%03d",$1,$2;}')" -ge 8008 ]; then
             GHC=$(command -v "${bootstrap_ghc}") edo ./configure --prefix="${inst_location}"
         else
+            echo "hello world"
+            echo ${bootstrap_ghc}
             edo ./configure --prefix="${inst_location}" --with-ghc="${bootstrap_ghc}"
         fi
         emake -j${JOBS}
